@@ -1,0 +1,75 @@
+# File managed by Ansible. Changes will be lost
+default:
+  autoload:
+    '': %paths.base%/../../../tests/behat/features/bootstrap/
+  formatters:
+    pretty:
+      verbose: false
+      paths: false
+      snippets: true
+    junit:
+      output_path: "../reports/behat/junit"
+  suites:
+    default:
+      paths:
+        - %paths.base%/../../../tests/behat/features/
+      filters:
+        tags: "~@exclude"
+      contexts:
+        - FeatureContext:
+        - Drupal\DrupalExtension\Context\MinkContext:
+        - Drupal\DrupalExtension\Context\MessageContext:
+        - Drupal\DrupalExtension\Context\DrushContext:
+
+  extensions:
+    Behat\MinkExtension:
+      goutte: ~
+      sessions:
+        default:
+          goutte:
+            guzzle_parameters:
+              verify: false
+      selenium2:
+        wd_host: "http://127.0.0.1:4444/wd/hub"
+        capabilities:
+          marionette: null
+      browser_name: 'chrome'
+      base_url: 'http://drupalvm.test'
+      show_cmd: lynx %s
+      files_path: "/var/behat/files/default"
+    Drupal\DrupalExtension:
+      blackbox: ~
+      drush_driver: "drush"
+      drush:
+        root: "/var/www/drupalvm/drupal/web"
+      api_driver: "drupal"
+      drupal:
+        drupal_root: "/var/www/drupalvm/drupal/web"
+      region_map:
+        content: ".region-content"
+        content bottom: ".region-content-bottom"
+        footer: "footer"
+        header: ".region-header"
+        header extra: ".region-header-extra"
+        highlighted: ".region-highlighted"
+        sidebar responsive: ".region-sidebar-responsive"
+        sidebar: ".region-sidebar-left"
+        fixed: ".region-fixed"
+        content top: ".region-content-top"
+        table revision: '.node-revision-table'
+        breadcrumb: '.breadcrumb'
+        step list: '.steps__list'
+        group responsable: ".group-responsible-contact"
+        group contacto principal: ".group-main-contact"
+        term reference tree: ".term-reference-tree"
+      selectors:
+        message_selector: '.messages'
+        error_message_selector: '.alert-danger'
+        success_message_selector: '.alert-success'
+        warning_message_selector: '.messages.warning'
+      text:
+        password_field: "edit-pass"
+        username_field: "edit-name"
+        log_in: "edit-submit"
+        log_out: "Cerrar sesión"
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="default">
+  <testsuite name="Funcionalidad básica de Behat" tests="2" skipped="0" failures="0" errors="0">
+    <testcase name="Pagina principal" status="passed"></testcase>
+    <testcase name="Pagina principal con JS" status="passed"></testcase>
+  </testsuite>
+</testsuites>
