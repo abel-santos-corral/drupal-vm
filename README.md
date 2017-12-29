@@ -129,3 +129,8 @@ section of composer.json:
 ### How do I switch from packagist.drupal-composer.org to packages.drupal.org?
 
 Follow the instructions in the [documentation on drupal.org](https://www.drupal.org/docs/develop/using-composer/using-packagesdrupalorg).
+=======
+
+# drupal-vm
+Creation of a drupal-vm template for design purposes
+
